@@ -11,19 +11,19 @@ public class SideOfTriangle {
 			side3;
 		
 		System.out.print("Enter length of side 1: ");
-		side1 = input.nextInt();
+		side1 = Math.abs(input.nextInt());
 		System.out.print("Enter length of side 2: ");
-		side2 = input.nextInt();
+		side2 = Math.abs(input.nextInt());
 		System.out.print("Enter length of side 3: ");
-		side3 = input.nextInt();
+		side3 = Math.abs(input.nextInt());
 		
-		System.out.println((Math.abs(side1) < Math.abs(side2) + Math.abs(side3) && 
-							Math.abs(side1) > Math.abs(Math.abs(side2) - Math.abs(side3)) &&
-							Math.abs(side2) < Math.abs(side1) + Math.abs(side3) &&
-							Math.abs(side2) > Math.abs(Math.abs(side1) - Math.abs(side3)) &&
-							Math.abs(side3) < Math.abs(side2) + Math.abs(side1) &&
-							Math.abs(side3) > Math.abs(Math.abs(side2) - Math.abs(side1))) 
-				? "Numbers entered makes a triangle." : "Numbers enterd do not make a triangle.");
+		System.out.println((side1 < side2 + side3 && 
+							side1 > Math.abs(side2 - side3) &&
+							side2 < side1 + side3 &&
+							side2 > Math.abs(side1 - side3) &&
+							side3 < side2 + side1 &&
+							side3 > Math.abs(side2 - side1))
+				? "Numbers entered make a triangle." : "Numbers entered do not make a triangle.");
 		
 		input.close();
 	}
