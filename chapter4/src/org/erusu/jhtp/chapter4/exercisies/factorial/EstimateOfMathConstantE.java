@@ -18,11 +18,15 @@ public class EstimateOfMathConstantE {
 		currentNum = numTerms;
 		tempForFactorial = currentNum;
 		
+		// An approximation for e is 1 + 1/1! + 1/2! + ...
 		while(currentNum > 0) {
+			
+			// calculate factorial
 			while(tempForFactorial > 0) {
 				factorial *= tempForFactorial--;
 			}
 			
+			// add 1 / n! to current value
 			mathConstE += 1.0 / factorial;
 			tempForFactorial = currentNum-- - 1;
 			factorial = 1;

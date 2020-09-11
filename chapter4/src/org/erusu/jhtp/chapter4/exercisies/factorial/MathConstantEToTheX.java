@@ -23,11 +23,15 @@ public class MathConstantEToTheX {
 		System.out.print("Enter exponent to raise e: ");
 		exponent = input.nextInt();
 		
+		// e^x can be calculated by 1 + x^1/1! + x^2/2! + ...
 		while(currentNum > 0) {
+			
+			// calculate factorial
 			while(tempForFactorial > 0) {
 				factorial *= tempForFactorial--;
 			}
 			
+			// add exponent ^ 1 / 1! to currentValue
 			mathConstE += Math.pow(exponent, currentNum) / factorial;
 			tempForFactorial = currentNum-- - 1;
 			factorial = 1;

@@ -14,6 +14,7 @@ public class Factorial {
 		numToCalcFactorial = input.nextInt();
 		currentNum = numToCalcFactorial;
 		
+		// calculate factorial
 		while(currentNum > 0) {
 			factorial *= currentNum--;
 		}
