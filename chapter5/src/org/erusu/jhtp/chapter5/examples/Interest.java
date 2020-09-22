@@ -3,7 +3,7 @@ package org.erusu.jhtp.chapter5.examples;
 public class Interest {
 	public static void main(String[] args) {
 		double amount,
-			principal = 1000.0,
+			principal = 1000.00,
 			rate = 0.05;
 		
 		System.out.printf("%s%20s\n", "Year", "Amount on deposit");
