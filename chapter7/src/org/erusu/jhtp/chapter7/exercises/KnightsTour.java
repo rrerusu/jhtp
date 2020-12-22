@@ -7,11 +7,13 @@ public class KnightsTour {
 	static int[] vertical = new int[]{-1, -2, -2, -1, 1, 2, 2, 1};
 	
 	public static void main(String[] args) {
-		for(int row = 0; row < board.length; row++) {
-			for(int col = 0; col < board[row].length; col++) {
-				runTour(row, col);
-			}
-		}
+//		for(int row = 0; row < board.length; row++) {
+//			for(int col = 0; col < board[row].length; col++) {
+//				runTour(row, col);
+//			}
+//		}
+		
+		runTour(0, 0);
 	}
 	
 	public static void runTour(int currRow, int currColumn) {
@@ -117,7 +119,9 @@ public class KnightsTour {
 	}
 	
 	public static int determineOptimalPath(int currentRow, int currentCol) {
-		int optimal = 8;
+		int optimal = 8,
+			choice1,
+			choice2;
 		
 		for(int possibleMove = 0; possibleMove < 8; possibleMove++) {
 			
@@ -126,6 +130,11 @@ public class KnightsTour {
 					optimal = possibleMove;
 				} else if(board[currentRow + vertical[possibleMove]][currentCol + horizontal[possibleMove]] < board[currentRow + vertical[optimal]][currentCol + horizontal[optimal]]) {
 						optimal = possibleMove;
+//				} else if(board[currentRow + vertical[possibleMove]][currentCol + horizontal[possibleMove]] == board[currentRow + vertical[optimal]][currentCol + horizontal[optimal]]) {
+//					printBoard();
+//					choice1 = determineOptimalPath(currentRow + vertical[possibleMove], currentCol + horizontal[possibleMove]);
+//					choice2 = determineOptimalPath(currentRow + vertical[optimal], currentCol + horizontal[optimal]);
+//					optimal = (choice1 < choice2) ? possibleMove : optimal;
 				}
 			}
 		}
