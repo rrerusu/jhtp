@@ -20,10 +20,7 @@ public class KnightsTour {
 		for(int rowCounter = 0; rowCounter < board.length; rowCounter++) {
 			for(int colCounter = 0; colCounter < board[rowCounter].length; colCounter++) {
 				for(int heatCounter = 0; heatCounter < 8; heatCounter++) {
-					if(! (rowCounter + vertical[heatCounter] < 0 ||
-					   rowCounter + vertical[heatCounter] >= 8 ||
-					   colCounter + horizontal[heatCounter] < 0 ||
-					   colCounter + horizontal[heatCounter] >= 8))
+					if(isMoveValid(rowCounter, colCounter, heatCounter))
 						board[rowCounter][colCounter]++;
 				}
 			}
@@ -34,10 +31,7 @@ public class KnightsTour {
 			
 			// update numbers around this one
 			for(int moveNumber = 0; moveNumber < 8; moveNumber++) {
-				if(! (currentRow + vertical[moveNumber] < 0 ||
-				   currentRow + vertical[moveNumber] >= 8 ||
-				   currentColumn + horizontal[moveNumber] < 0 ||
-				   currentColumn + horizontal[moveNumber] >= 8) &&
+				if(isMoveValid(currentRow, currentColumn, moveNumber) &&
 						board[currentRow + vertical[moveNumber]][currentColumn + horizontal[moveNumber]] < 9) {
 					board[currentRow + vertical[moveNumber]][currentColumn + horizontal[moveNumber]]--;
 				}
