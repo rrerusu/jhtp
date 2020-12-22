@@ -7,8 +7,16 @@ public class KnightsTour {
 	static int[] vertical = new int[]{-1, -2, -2, -1, 1, 2, 2, 1};
 	
 	public static void main(String[] args) {
-		int currentRow = 0,
-			currentColumn = 0,
+		for(int row = 0; row < board.length; row++) {
+			for(int col = 0; col < board[row].length; col++) {
+				runTour(row, col);
+			}
+		}
+	}
+	
+	public static void runTour(int currRow, int currColumn) {
+		int currentRow = currRow,
+			currentColumn = currColumn,
 //			moveNumber = 0,
 			stepCounter = 0,
 //			counter = 1,
@@ -47,7 +55,7 @@ public class KnightsTour {
 				currentColumn += horizontal[optimalPath];
 				stepCounter++;
 				
-				printBoard();
+//				printBoard();
 			}
 		} while(stepCounter < 64);
 		
@@ -116,8 +124,7 @@ public class KnightsTour {
 			if(isMoveValid(currentRow, currentCol, possibleMove)) {
 				if(optimal == 8) {
 					optimal = possibleMove;
-				} else {
-					if(board[currentRow + vertical[possibleMove]][currentCol + horizontal[possibleMove]] < board[currentRow + vertical[optimal]][currentCol + horizontal[optimal]])
+				} else if(board[currentRow + vertical[possibleMove]][currentCol + horizontal[possibleMove]] < board[currentRow + vertical[optimal]][currentCol + horizontal[optimal]]) {
 						optimal = possibleMove;
 				}
 			}
