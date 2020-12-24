@@ -1,4 +1,4 @@
-package org.erusu.jhtp.chapter7.exercises;
+package org.erusu.jhtp.chapter7.exercises.knights_tour;
 
 public class KnightsTour {
 	
