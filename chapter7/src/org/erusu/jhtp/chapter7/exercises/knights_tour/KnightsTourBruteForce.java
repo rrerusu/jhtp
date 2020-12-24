@@ -57,7 +57,10 @@ public class KnightsTourBruteForce {
 			
 			// exit because we lost
 			if(runTest(movesTested))
-				stepCounter = 64;
+				break;
+			
+			if(runMainTest())
+				break;
 			
 			
 			if(optimalPath < 8) {
@@ -126,5 +129,18 @@ public class KnightsTourBruteForce {
 		}
 		
 		return true;
+	}
+	
+	public static boolean runMainTest() {
+		int zeroCounter = 0;
+		
+		for(int[] nums : board) {
+			for(int num : nums) {
+				if(num == 0)
+					zeroCounter++;
+			}
+		}
+		
+		return zeroCounter > 1;
 	}
 }
