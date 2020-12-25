@@ -114,14 +114,14 @@ public class KnightsTour {
 	
 	// is move within the chessboard boundaries
 	public static boolean isMoveValid(int currentRow, int currentCol, int possibleMove) {
-		return ! (currentRow + vertical[possibleMove] < 0 || currentRow + vertical[possibleMove] > 7 ||
-				   currentCol + horizontal[possibleMove] < 0 || currentCol + horizontal[possibleMove] > 7);
+		return currentRow + vertical[possibleMove] > 0 && currentRow + vertical[possibleMove] < 8 &&
+				   currentCol + horizontal[possibleMove] > 0 && currentCol + horizontal[possibleMove] < 8;
 	}
 	
 	public static int determineOptimalPath(int currentRow, int currentCol) {
-		int optimal = 8,
-			choice1,
-			choice2;
+		int optimal = 8;
+//			choice1,
+//			choice2;
 		
 		for(int possibleMove = 0; possibleMove < 8; possibleMove++) {
 			

@@ -13,9 +13,10 @@ public class KnightsTourBruteForce {
 		int[] steps = new int[65];
 		int stepsTaken;
 		
-		for(int counter = 0; counter < 1000; counter++) {
+		while(steps[64] < 1) {
 			stepsTaken = runTour(0, 0);
 			steps[stepsTaken]++;
+			System.out.println(stepsTaken);
 		}
 		
 		System.out.printf("Steps | Amount%n");
