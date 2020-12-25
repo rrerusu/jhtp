@@ -4,23 +4,36 @@ import java.util.Random;
 
 public class KnightsTourBruteForce {
 	
-	static int[][] board = new int[8][8];
+	static int[][] board;
 	static int[] horizontal = new int[]{2, 1, -1, -2, -2, -1, 1, 2};
 	static int[] vertical = new int[]{-1, -2, -2, -1, 1, 2, 2, 1};
 	static final Random myRandGen = new Random();
 	
 	public static void main(String[] args) {
-		runTour(2, 6);
+		int[] steps = new int[65];
+		int stepsTaken;
+		
+		for(int counter = 0; counter < 1000; counter++) {
+			stepsTaken = runTour(0, 0);
+			steps[stepsTaken]++;
+		}
+		
+		System.out.printf("Steps | Amount%n");
+		
+		for(int counter = 0; counter < 65; counter++) {
+			System.out.printf("%-6d| %-6d%n", counter, steps[counter]);
+		}
 	}
 	
 	// TODO: Make knight move randomly: do first choice that suffices random possibility and let game play as far as it an
-	public static void runTour(int currRow, int currColumn) {
+	public static int runTour(int currRow, int currColumn) {
+		board = new int[8][8];
 		int currentRow = currRow,
 			currentColumn = currColumn,
 			stepCounter = 0,
 			optimalPath = 7;
 		
-		boolean won = true;
+//		boolean won = true;
 		
 		// Turn board into heat map
 		for(int rowCounter = 0; rowCounter < board.length; rowCounter++) {
@@ -54,24 +67,25 @@ public class KnightsTourBruteForce {
 				currentColumn += horizontal[optimalPath];
 				stepCounter++;
 				
-				printBoard();
+//				printBoard();
 			} else {
 				break;
 			}
 		} while(stepCounter < 64);
 		
 		// Test to see if we won
-		for(int rowCounter = 0; rowCounter < board.length; rowCounter++) {
-			for(int colCounter = 0; colCounter < board[rowCounter].length; colCounter++) {
-				if(board[rowCounter][colCounter] != 9) {
-					won = false;
-				}
-			}
-		}
+//		for(int rowCounter = 0; rowCounter < board.length; rowCounter++) {
+//			for(int colCounter = 0; colCounter < board[rowCounter].length; colCounter++) {
+//				if(board[rowCounter][colCounter] != 9) {
+//					won = false;
+//				}
+//			}
+//		}
 		
-		System.out.println(won);
-		printBoard();
-		
+//		System.out.println(won);
+//		System.out.println("Steps: " + stepCounter);
+//		printBoard();
+		return stepCounter;
 	}
 	
 	public static void printBoard() {
