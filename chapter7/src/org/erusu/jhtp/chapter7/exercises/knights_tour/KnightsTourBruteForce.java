@@ -10,9 +10,10 @@ public class KnightsTourBruteForce {
 	static final Random myRandGen = new Random();
 	
 	public static void main(String[] args) {
-		runTour(0, 0);
+		runTour(2, 6);
 	}
 	
+	// TODO: Make knight move randomly: do first choice that suffices random possibility and let game play as far as it an
 	public static void runTour(int currRow, int currColumn) {
 		int currentRow = currRow,
 			currentColumn = currColumn,
@@ -36,8 +37,7 @@ public class KnightsTourBruteForce {
 			
 			// update numbers around this one
 			for(int moveNumber = 0; moveNumber < 8; moveNumber++) {
-				if(isMoveValid(currentRow, currentColumn, moveNumber) &&
-						board[currentRow + vertical[moveNumber]][currentColumn + horizontal[moveNumber]] < 9) {
+				if(isMoveValid(currentRow, currentColumn, moveNumber)) {
 					board[currentRow + vertical[moveNumber]][currentColumn + horizontal[moveNumber]]--;
 				}
 			}
@@ -47,35 +47,23 @@ public class KnightsTourBruteForce {
 //			// Take optimal path
 //			optimalPath = determineOptimalPath(currentRow, currentColumn);
 			
-			int[] movesTested = new int[8];
+			optimalPath = determineRandomPath(currentRow, currentColumn);
 			
-			// Take random path
-			while(! isMoveValid(currentRow, currentColumn, optimalPath) || runTest(movesTested)) {
-				optimalPath = myRandGen.nextInt(8);
-				movesTested[optimalPath] = 1;
-			}
-			
-			// exit because we lost
-			if(runTest(movesTested))
-				break;
-			
-			if(runMainTest())
-				break;
-			
-			
-			if(optimalPath < 8) {
+			if(isMoveValid(currentRow, currentColumn, optimalPath)) {
 				currentRow += vertical[optimalPath];
 				currentColumn += horizontal[optimalPath];
 				stepCounter++;
 				
-//				printBoard();
+				printBoard();
+			} else {
+				break;
 			}
 		} while(stepCounter < 64);
 		
 		// Test to see if we won
 		for(int rowCounter = 0; rowCounter < board.length; rowCounter++) {
 			for(int colCounter = 0; colCounter < board[rowCounter].length; colCounter++) {
-				if(board[rowCounter][colCounter] == 0) {
+				if(board[rowCounter][colCounter] != 9) {
 					won = false;
 				}
 			}
@@ -87,7 +75,6 @@ public class KnightsTourBruteForce {
 	}
 	
 	public static void printBoard() {
-		// display each value
 		for(int row[] : board) {
 			for(int col : row) {
 				System.out.print(col + " ");
@@ -99,48 +86,60 @@ public class KnightsTourBruteForce {
 		System.out.println("\n\n");
 	}
 	
-	// is move within the chessboard boundaries
+	// Is move within the chessboard boundaries?
 	public static boolean isMoveValid(int currentRow, int currentCol, int possibleMove) {
-		return ! (currentRow + vertical[possibleMove] < 0 || currentRow + vertical[possibleMove] > 7 ||
-				   currentCol + horizontal[possibleMove] < 0 || currentCol + horizontal[possibleMove] > 7);
+		return possibleMove < 8 && (currentRow + vertical[possibleMove] >= 0 && currentRow + vertical[possibleMove] < 8) &&
+				   (currentCol + horizontal[possibleMove] >= 0 && currentCol + horizontal[possibleMove] < 8) &&
+				   board[currentRow + vertical[possibleMove]][currentCol + horizontal[possibleMove]] < 9;
 	}
 	
-	public static int determineOptimalPath(int currentRow, int currentCol) {
+	public static int determineRandomPath(int currentRow, int currentCol) {
 		int optimal = 8;
+		int[] movesTested = new int[8];
 		
-		for(int possibleMove = 0; possibleMove < 8; possibleMove++) {
-			
-			if(isMoveValid(currentRow, currentCol, possibleMove)) {
-				if(optimal == 8) {
-					optimal = possibleMove;
-				} else if(board[currentRow + vertical[possibleMove]][currentCol + horizontal[possibleMove]] < board[currentRow + vertical[optimal]][currentCol + horizontal[optimal]]) {
-						optimal = possibleMove;
-				}
-			}
+		while(! isMoveValid(currentRow, currentCol, optimal)) {
+			optimal = myRandGen.nextInt(8);
+			movesTested[optimal] = 1;
+			if(runTest(movesTested))
+				return 8;
 		}
 		
 		return optimal;
 	}
 	
+//	public static int determineOptimalPath(int currentRow, int currentCol) {
+//		int optimal = 8;
+//		
+//		for(int possibleMove = 0; possibleMove < 8; possibleMove++) {
+//			
+//			if(isMoveValid(currentRow, currentCol, possibleMove)) {
+//				if(optimal == 8) {
+//					optimal = possibleMove;
+//				} else if(board[currentRow + vertical[possibleMove]][currentCol + horizontal[possibleMove]] < board[currentRow + vertical[optimal]][currentCol + horizontal[optimal]]) {
+//						optimal = possibleMove;
+//				}
+//			}
+//		}
+//		return optimal;
+//	}
+	
 	public static boolean runTest(int[] arr) {
 		for(int num : arr) {
-			if(num == 0)
+			if(num == 0 || num == 8)
 				return false;
 		}
-		
 		return true;
 	}
 	
-	public static boolean runMainTest() {
-		int zeroCounter = 0;
+	public static int bestMove(int[] arr) {
+		int lowestNum = 9,
+			indx = 0;
 		
-		for(int[] nums : board) {
-			for(int num : nums) {
-				if(num == 0)
-					zeroCounter++;
-			}
+		for(int testIndx = 0; testIndx < arr.length; testIndx++) {
+			if (arr[testIndx] < lowestNum)
+				indx = testIndx;
 		}
 		
-		return zeroCounter > 1;
+		return indx;
 	}
 }
