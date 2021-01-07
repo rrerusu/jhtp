@@ -30,11 +30,41 @@ public class EightQueensBruteForce {
 		Random myRandGen = new Random();
 		
 		for(int row = 0; row < board.length; row++) {
-			board[row][myRandGen.nextInt(board[row].length)] = 30;
+			int col = myRandGen.nextInt(board[row].length);
+			
+			// updateBoard
+			updateBoard(row, col);
 		}
 	}
 	
-	public static void checkBoard() {
-			
+	// Check to see if board is a solution to the Eight Queens problem
+	public static boolean checkBoard() {
+		for(int row = 0; row < board.length; row++) {
+			for(int col = 0; col < board[row].length; col++) {
+				if(board[row][col] < 29)
+					return false;
+			}
+		}
+		
+		return true;
+	}
+	
+	// Update any pieces around any of the queens placed
+	public static void updateBoard(int qRow, int qCol) {
+		board[qRow][qCol] = 30;
+		
+		int qSum = qRow + qCol;
+		int qDiff = qRow - qCol;
+		
+		for(int row = 0; row < board.length; row++) {
+			for(int col = 0; col < board[row].length; col++) {
+				if((row == qRow ||
+				   col == qCol ||
+				   row + col == qSum ||
+				   row - col == qDiff) &&
+				   board[row][col] < 30)
+					board[row][col] = 29;
+			}
+		}
 	}
 }
