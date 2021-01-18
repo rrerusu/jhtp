@@ -41,4 +41,15 @@ public class DeckOfCards {
 		else
 			return null;
 	}
+	
+	public Card[] dealHand(int size) {
+		// Deal hand of 5 cards
+		Card[] myHand = new Card[size];
+				
+		for(int cardCount = 0; cardCount < size; cardCount++) {
+			myHand[cardCount] = dealCard();
+		}
+		
+		return myHand;
+	}
 }

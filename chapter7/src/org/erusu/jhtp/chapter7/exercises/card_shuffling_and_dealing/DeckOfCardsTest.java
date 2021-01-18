@@ -16,10 +16,6 @@ public class DeckOfCardsTest {
 //		}
 		
 		// Deal hand of 5 cards
-		Card[] myHand = new Card[5];
-		
-		for(int cardCount = 0; cardCount < 5; cardCount++) {
-			myHand[cardCount] = myDeck.dealCard();
-		}
+		Card[] pokerHand = myDeck.dealHand(5);
 	}
 }
