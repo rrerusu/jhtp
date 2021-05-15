@@ -8,7 +8,7 @@ public enum Book {
     VBHTP("Visual Basic 2010 How to Program", "2011"),
     CSHARPHTP("VISUAL C# 2010 How to Program", "2011");
 
-    private final title;
+    private final String title;
     private final String copyrightYear;
 
     Book(String bookTitle, String year) {
