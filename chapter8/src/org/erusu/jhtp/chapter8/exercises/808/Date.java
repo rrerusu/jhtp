@@ -53,6 +53,33 @@ public class Date {
         }
     }
 
+    // Accessor and Modifier Methods
+    public int getDay() {
+        return day;
+    }
+
+    public int getMonth() {
+        return month;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setDay(int d) {
+        day = d;
+    }
+
+    public void setMonth(int m) {
+        month = m;
+    }
+
+    public void setYear(int y) {
+        year = y;
+    }
+
+    // toString
+    @Override
     public String toString() {
         return String.format("%d/%d/%d", month, day, year);
     }

@@ -25,7 +25,7 @@ public class Time2 {
         this(time.getHour(), time.getMinute(), time.getSecond());
     }
 
-    public void tick() {
+    public boolean tick() {
         try {
             setSecond(getSecond() + 1);
         } catch (IllegalArgumentException invalidSec) {
@@ -38,9 +38,11 @@ public class Time2 {
                     setHour(getHour() + 1);
                 } catch (IllegalArgumentException invalidHour) {
                     setHour(0);
+                    return true;
                 }
             }
         }
+        return false;
     }
 
     public void setTime(int h, int m, int s) {
