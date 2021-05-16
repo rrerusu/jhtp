@@ -27,9 +27,19 @@ public class Complex {
         imaginary = num;
     }
 
-    // Sum 2 complex Numbers
-    public static Complex sum(Complex num1, Complex num2) {
+    // Add 2 complex Numbers
+    public static Complex add(Complex num1, Complex num2) {
         return new Complex((num1.getReal() + num2.getReal()), (num1.getImaginary() + num2.getImaginary()));
+    }
+
+    // Subtract 2 complex numbers
+    public static Complex subtract(Complex num1, Complex num2) {
+        return new Complex((num1.getReal() - num2.getReal()), (num1.getImaginary() - num2.getImaginary()));
+    }
+
+    // Multiply 2 complex Numbers
+    public static Complex multiply(Complex num1, Complex num2) {
+        return new Complex((num1.getReal() * num2.getReal() - num1.getImaginary() * num2.getImaginary()), (num1.getReal() * num2.getImaginary() + num1.getImaginary() * num2.getReal()));
     }
 
     // toString
