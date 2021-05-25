@@ -287,7 +287,12 @@ public class HugeInteger {
 	 * @return product of num1 and num2
 	 */
 //	public static HugeInteger multiply(HugeInteger num1, HugeInteger num2) {
+//		try {
 //
+//		} catch (ArrayIndexOutOfBoundsException differenceTooBig) {
+//			System.out.printf("Error: %s%n%n", differenceTooBig.toString());
+//			return null;
+//		}
 //	}
 
 	// TODO: divide()
