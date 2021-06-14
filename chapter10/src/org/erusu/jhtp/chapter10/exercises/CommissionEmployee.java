@@ -1,49 +1,28 @@
 package org.erusu.jhtp.chapter10.exercises;
 
-public class CommissionEmployee extends Object {
-	private String firstName;
-	private String lastName;
-	private String socialSecurityNumber;
+public class CommissionEmployee extends Employee {
 	private double grossSales;
 	private double commissionRate;
 
-	public CommissionEmployee(String first, String last, String ssn, double sales, double rate) {
-		firstName = first;
-		lastName = last;
-		socialSecurityNumber = ssn;
-		setGrossSales(sales);
-		setCommissionRate(rate);
-	}
+	public CommissionEmployee(String first, String last, String ssn,
+							  double grossSales, double commissionRate) {
+		super(first, last, ssn);
 
-	public void setFirstName(String first) {
-		firstName = first;
-	}
+		if(commissionRate <= 0 || commissionRate >= 1.0)
+			throw new IllegalArgumentException("Commission rate must be > 0.0 and < 1.0");
 
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setLastName(String last) {
-		lastName = last;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setSocialSecurityNumber(String ssn) {
-		socialSecurityNumber = ssn;
-	}
-
-	public String getSocialSecurityNumber() {
-		return socialSecurityNumber;
-	}
-
-	public void setGrossSales(double sales) {
-		if(sales >= 0.0)
-			grossSales = sales;
-		else
+		if(grossSales < 0.0)
 			throw new IllegalArgumentException("Gross sales must be >= 0.0");
+
+		this.grossSales = grossSales;
+		this.commissionRate = commissionRate;
+	}
+
+	public void setGrossSales(double grossSales) {
+		if(grossSales < 0.0)
+			throw new IllegalArgumentException("Gross sales must be >= 0.0");
+
+		this.grossSales = grossSales;
 	}
 
 	public double getGrossSales() {
@@ -51,25 +30,24 @@ public class CommissionEmployee extends Object {
 	}
 
 	public void setCommissionRate(double rate) {
-		if(rate > 0.0 && rate < 1.0)
-			commissionRate = rate;
-		else
+		if(commissionRate <= 0 || commissionRate >= 1.0)
 			throw new IllegalArgumentException("Commission rate must be > 0.0 and < 1.0");
+
+		this.commissionRate = commissionRate;
 	}
 
 	public double getCommissionRate() {
 		return commissionRate;
 	}
 
+	@Override
 	public double earnings() {
 		return getCommissionRate() * getGrossSales();
 	}
 
 	@Override
 	public String toString() {
-		return String.format("%s: %s %s%n%s: %s%n%s: %.2f%n%s: %.2f%n",
-			"base-salaried commission employee", getFirstName(), getLastName(),
-			"social security number", getSocialSecurityNumber(),
+		return String.format("%s: %s\n%s: $%.2f; %s: %.2f", "commission employee", super.toString(),
 			"gross sales", getGrossSales(), "commission rate", getCommissionRate());
 	}
 }
