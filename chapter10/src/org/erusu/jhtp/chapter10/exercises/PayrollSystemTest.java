@@ -14,12 +14,12 @@ public class PayrollSystemTest {
 		System.out.println("Employees processed individually: ");
 
 		System.out.printf("\n%s\n%s: $%,.2f\n\n", mySalariedEmployee, "earned",
-			mySalariedEmployee.earnings());
-		System.out.printf("%s\n%s: $%,.2f\n\n", myHourlyEmployee, "earned", myHourlyEmployee.earnings());
+			mySalariedEmployee.getPaymentAmount());
+		System.out.printf("%s\n%s: $%,.2f\n\n", myHourlyEmployee, "earned", myHourlyEmployee.getPaymentAmount());
 		System.out.printf("%s\n%s: $%,.2f\n\n", myCommissionEmployee, "earned",
-			myCommissionEmployee.earnings());
+			myCommissionEmployee.getPaymentAmount());
 		System.out.printf("%s\n%s: $%,.2f\n\n", myBasePlusCommissionEmployee, "earned",
-			myBasePlusCommissionEmployee.earnings());
+			myBasePlusCommissionEmployee.getPaymentAmount());
 
 		Employee[] employees = new Employee[4];
 
@@ -42,7 +42,7 @@ public class PayrollSystemTest {
 					employee.getBaseSalary());
 			}
 
-			System.out.printf("earned $%,.2f\n\n", currentEmployee.earnings());
+			System.out.printf("earned $%,.2f\n\n", currentEmployee.getPaymentAmount());
 		}
 
 		for(int j = 0; j < employees.length; j++)

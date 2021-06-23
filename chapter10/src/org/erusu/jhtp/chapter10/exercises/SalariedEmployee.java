@@ -3,10 +3,10 @@ package org.erusu.jhtp.chapter10.exercises;
 public class SalariedEmployee extends Employee {
 	private double weeklySalary;
 
-	public SalariedEmployee(String first, String last, String ssn, double weekleySalary) {
+	public SalariedEmployee(String first, String last, String ssn, double weeklySalary) {
 		super(first, last, ssn);
 
-		if(weekleySalary < 0.0)
+		if(weeklySalary < 0.0)
 			throw new IllegalArgumentException("Weekly salary must be >= 0.0");
 
 		this.weeklySalary = weeklySalary;
@@ -14,7 +14,7 @@ public class SalariedEmployee extends Employee {
 
 	public void setWeekleySalary(double weeklySalary) {
 		if(weeklySalary < 0.0)
-			throw new IllegalArgumentException("Weekly salary must be >= 0");
+			throw new IllegalArgumentException("Weekly salary must be >= 0.0");
 
 		this.weeklySalary = weeklySalary;
 	}
@@ -24,7 +24,7 @@ public class SalariedEmployee extends Employee {
 	}
 
 	@Override
-	public double earnings() {
+	public double getPaymentAmount() {
 		return getWeeklySalary();
 	}
 

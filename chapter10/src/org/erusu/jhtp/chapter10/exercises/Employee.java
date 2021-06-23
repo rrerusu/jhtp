@@ -1,6 +1,6 @@
 package org.erusu.jhtp.chapter10.exercises;
 
-public abstract class Employee {
+public abstract class Employee implements Payable{
 	private String firstName;
 	private String lastName;
 	private String SSN;
@@ -40,6 +40,4 @@ public abstract class Employee {
 		return String.format("%s %s\nsocial security number: %s",
 			getFirstName(), getLastName(), getSocialSecurityNumber());
 	}
-
-	public abstract double earnings();
 }
