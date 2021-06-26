@@ -1,4 +1,4 @@
-package org.erusu.jhtp.chapter10.exercises;
+package org.erusu.jhtp.chapter10.examples;
 
 public class HourlyEmployee extends Employee {
 	private double wage;

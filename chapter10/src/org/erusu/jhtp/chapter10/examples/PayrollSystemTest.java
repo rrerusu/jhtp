@@ -1,4 +1,4 @@
-package org.erusu.jhtp.chapter10.exercises;
+package org.erusu.jhtp.chapter10.examples;
 
 public class PayrollSystemTest {
 	public static void main(String[] args) {

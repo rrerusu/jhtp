@@ -1,6 +1,6 @@
-package org.erusu.jhtp.chapter10.exercises;
+package org.erusu.jhtp.chapter10.exercises._1012;
 
-public class Invoice implements Payable{
+public class Invoice implements Payable {
 	private final String partNumber;
 	private final String partDescription;
 	private int quantity;
