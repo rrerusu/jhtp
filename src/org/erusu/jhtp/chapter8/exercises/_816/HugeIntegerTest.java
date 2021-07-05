@@ -52,12 +52,12 @@ public class HugeIntegerTest {
 
 		HugeInteger test = HugeInteger.add(test1num1, test1num2);
 
-		System.out.printf("%s + %s = %s%n%s - %s = %s%n%s * %s = %s%n%s / %s = %s%n%s mod %s = %s",
-			test1num1.toString(), test1num2.toString(), HugeInteger.add(test1num1, test1num2).toString(),
-			test1num1.toString(), test1num2.toString(), HugeInteger.subtract(test1num1, test1num2).toString(),
-			test1num1.toString(), test1num2.toString(), HugeInteger.multiply(test1num1, test1num2).toString(),
-			test1num1.toString(), test1num2.toString(), HugeInteger.divide(test1num1, test1num2).toString(),
-			test1num1.toString(), test1num2.toString(), HugeInteger.remainder(test1num1, test1num2).toString());
+		// System.out.printf("%s + %s = %s%n%s - %s = %s%n%s * %s = %s%n%s / %s = %s%n%s mod %s = %s",
+		// 	test1num1.toString(), test1num2.toString(), HugeInteger.add(test1num1, test1num2).toString(),
+		// 	test1num1.toString(), test1num2.toString(), HugeInteger.subtract(test1num1, test1num2).toString(),
+		// 	test1num1.toString(), test1num2.toString(), HugeInteger.multiply(test1num1, test1num2).toString(),
+		// 	test1num1.toString(), test1num2.toString(), HugeInteger.divide(test1num1, test1num2).toString(),
+		// 	test1num1.toString(), test1num2.toString(), HugeInteger.remainder(test1num1, test1num2).toString());
     }
 
     public static String[] runConditionalTests(HugeInteger num1, HugeInteger num2) {
