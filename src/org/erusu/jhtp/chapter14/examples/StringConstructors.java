@@ -1,4 +1,4 @@
-package org.erusu.jhtp.chapter14;
+package org.erusu.jhtp.chapter14.examples;
 
 public class StringConstructors {
     public static void main(String[] args) {

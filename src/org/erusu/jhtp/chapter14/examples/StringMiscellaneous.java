@@ -1,4 +1,4 @@
-package org.erusu.jhtp.chapter14;
+package org.erusu.jhtp.chapter14.examples;
 
 public class StringMiscellaneous {
     public static void main(String[] args) {
@@ -25,3 +25,5 @@ public class StringMiscellaneous {
         System.out.println();
     }
 }
+
+
