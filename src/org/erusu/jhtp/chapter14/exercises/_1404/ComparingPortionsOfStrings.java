@@ -1,4 +1,4 @@
-package org.erusu.jhtp.chapter14.exercises._1403;
+package org.erusu.jhtp.chapter14.exercises._1404;
 
 import java.util.Scanner;
 
