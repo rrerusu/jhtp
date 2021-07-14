@@ -11,10 +11,12 @@ public class RandomSentences {
         
         for(int counter = 0; counter < 20; counter++) {
             mySentenceMaker.append(String.format("%s %s %s %s %s %s.",
-                capitalizeFirstChar(article[(int)(Math.random() * 5)]),
-                noun[(int)(Math.random() * 5)], verb[(int)(Math.random() * 5)],
-                preposition[(int)(Math.random() * 5)], article[(int)(Math.random() * 5)],
-                noun[(int)(Math.random() * 5)]));
+                capitalizeFirstChar(article[(int)(Math.random() * article.length)]),
+                noun[(int)(Math.random() * noun.length)],
+                verb[(int)(Math.random() * verb.length)],
+                preposition[(int)(Math.random() * preposition.length)],
+                article[(int)(Math.random() * article.length)],
+                noun[(int)(Math.random() * noun.length)]));
             System.out.printf("%s\n", mySentenceMaker.toString());
             mySentenceMaker.delete(0, mySentenceMaker.length());
         }
