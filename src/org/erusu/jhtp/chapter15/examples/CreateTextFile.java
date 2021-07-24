@@ -18,7 +18,7 @@ public class CreateTextFile {
 
     public static void openFile() {
         try {
-            output = new Formatter("clients.txt");
+            output = new Formatter("src/org/erusu/jhtp/chapter15/examples/clients.txt");
         } catch (SecurityException mySecurityException) {
             System.err.printf("Write permission denied.  Terminating.\n");
             System.exit(1);
