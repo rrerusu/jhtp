@@ -4,6 +4,7 @@
 *.ear
 *.class
 *.txt
+*.ser
 
 # eclipse specific git ignore
 *.pydevproject
