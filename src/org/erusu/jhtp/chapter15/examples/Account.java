@@ -39,6 +39,14 @@ public class Account implements Serializable{
         this.balance = balance;
     }
 
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
     public double getBalance() {
         return balance;
     }
