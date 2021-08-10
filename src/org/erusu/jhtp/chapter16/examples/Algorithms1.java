@@ -22,7 +22,7 @@ public class Algorithms1 {
         System.out.printf("\nAfter copying, copyList contains:\n");
         output(copyList);
 
-        Collections.fill(list, 'A');
+        Collections.fill(list, 'R');
         System.out.printf("\nAfter calling fill, list contains:\n");
         output(list);
     }
