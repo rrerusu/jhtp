@@ -9,7 +9,7 @@ public class A_OldMast {
         Scanner inOldMaster = new Scanner(
             Paths.get("src/org/erusu/jhtp/chapter15/exercises/_1502/oldmast.txt"));
         
-        System.out.printf("%s", inOldMaster.nextLine());
+        System.out.printf("Content of oldmast.txt: %s", inOldMaster.nextLine());
         inOldMaster.close();
     }
 }

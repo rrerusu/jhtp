@@ -10,7 +10,8 @@ public class C_NewMast {
 
     private static String fileContents;
     public static void main(String[] args) {
-        readFile();
+        // readFile();
+        outputFile();
         writeFile();
         outputFile();
     }
@@ -21,7 +22,7 @@ public class C_NewMast {
                 Paths.get("src/org/erusu/jhtp/chapter15/exercises/_1502/newmast.txt")
             );
 
-            System.out.printf(newMasterContent.nextLine());
+            System.out.printf("Content of newmast.txt: %s\n", newMasterContent.nextLine());
 
             newMasterContent.close();
         } catch(IOException fileDoesntExist) {
@@ -49,7 +50,7 @@ public class C_NewMast {
                 "src/org/erusu/jhtp/chapter15/exercises/_1502/newmast.txt"
             );
 
-            outNewMaster.format("%s %s", fileContents, "TESTING WHY THIS DOESNT WORK");
+            outNewMaster.format("%s", "Updated newmast.txt");
 
             outNewMaster.close();
         } catch(FileNotFoundException noFile) {

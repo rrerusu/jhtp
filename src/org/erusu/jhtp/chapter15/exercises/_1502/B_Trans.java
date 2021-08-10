@@ -10,7 +10,7 @@ public class B_Trans {
             "src/org/erusu/jhtp/chapter15/exercises/_1502/trans.txt"
         ));
 
-        System.out.printf("%s", inTransaction.nextLine());
+        System.out.printf("Content of trans.txt: %s", inTransaction.nextLine());
         inTransaction.close();
     }
 }

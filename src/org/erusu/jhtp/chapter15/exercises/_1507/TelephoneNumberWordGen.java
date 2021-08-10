@@ -6,6 +6,9 @@ import java.io.FileNotFoundException;
 
 public class TelephoneNumberWordGen {
 
+    private static final int COMBINATION_COUNT = 2187;
+
+
     public static void main(String[] args) throws FileNotFoundException{
         PrintStream output = new PrintStream(
             "src/org/erusu/jhtp/chapter15/exercises/_1507/output.txt"
@@ -24,7 +27,7 @@ public class TelephoneNumberWordGen {
         System.out.printf("Enter a phone number: ");
         phoneNum = input.nextLine().replaceAll("-", "");
 
-        for(int counter = 0; counter < 2187; counter++) {
+        for(int counter = 0; counter < COMBINATION_COUNT; counter++) {
             charIndexes = genThreeBitNum(counter);
             for(int index = 0; index < phoneNum.length(); index++) {
                 phonePhrase += 
