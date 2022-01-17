@@ -31,7 +31,8 @@ public class StreamOfLines {
                     entry -> entry.getKey().charAt(0),
                     TreeMap::new,
                     Collectors.toList()
-                ))
+                )
+            )
             .forEach((letter, wordList) -> {
                 System.out.printf("\n%C\n", letter);
                 wordList.stream()
