@@ -11,6 +11,10 @@ public class Date {
         year = y;
     }
 
+    public String displayDate() {
+        return String.format("%d/%d/%d", month, day, year);
+    }
+
     public int getDay() {
         return day;
     }
